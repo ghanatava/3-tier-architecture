@@ -11,13 +11,14 @@ resource "aws_db_instance" "database-1" {
   allocated_storage       = 20
   storage_type            = "gp2"
   engine                  = "postgres"
-  engine_version          = "PostgreSQL 15.4-R3"
-  instance_class          = "db.t2.micro" # Choose the appropriate instance type
+  engine_version          = "15.4"
+  instance_class          = "db.t3.micro" # Choose the appropriate instance type
   username                = "postgres"
   password                = var.master_password
   db_subnet_group_name    = aws_db_subnet_group.db-subnet-group.name
   skip_final_snapshot     = true
   backup_retention_period = 0
+  vpc_security_group_ids = [aws_security_group.db-sg.id]
 }
 
 # Output the database endpoint
