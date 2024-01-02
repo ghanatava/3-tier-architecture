@@ -15,7 +15,7 @@ resource "aws_lb" "network" {
   name               = "my-network-lb"
   internal           = true
   load_balancer_type = "network"
-  subnets            = [aws_subnet.private_subnet.id]
+  subnets            = [aws_subnet.private-subnet.id]
 }
 
 resource "aws_lb_listener" "frontend" {
@@ -36,5 +36,5 @@ resource "aws_lb_target_group_attachment" "attachment" {
 }
 
 output "aws_lb_DNS" {
-  value=aws_lb.network.dns_name
+  value = aws_lb.network.dns_name
 } 

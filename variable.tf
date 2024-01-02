@@ -5,7 +5,7 @@ variable "instance_key" {
 }
 
 variable "master_password" {
-    description = "Database administrator password"
-    type = string
-    sensitive = true
+  description = "Database administrator password"
+  type        = string
+  sensitive   = true
 }
